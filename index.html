@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Decoder</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-exchange-alt"></i> Universal Decoder</h1>
+            <p>Encode and decode using various cryptographic methods</p>
+            <div class="header-badges">
+                <span class="badge"><i class="fas fa-lock"></i> Secure</span>
+                <span class="badge"><i class="fas fa-file-upload"></i> File Support</span>
+                <span class="badge"><i class="fas fa-code"></i> Multiple Formats</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="io-container">
+                <div class="input-section">
+                    <h3><i class="fas fa-keyboard"></i> Input:</h3>
+                    <div class="input-container">
+                        <div class="tabs">
+                            <button class="tab-btn active" data-tab="text-input">Text Input</button>
+                            <button class="tab-btn" data-tab="file-input">File Input</button>
+                        </div>
+                        <div class="tab-content">
+                            <div id="text-input" class="tab-pane active">
+                                <textarea id="input-text" placeholder="Enter text to encode/decode..."></textarea>
+                            </div>
+                            <div id="file-input" class="tab-pane">
+                                <div class="file-upload-area">
+                                    <input type="file" id="file-upload" class="file-input">
+                                    <label for="file-upload" class="file-upload-label">
+                                        <i class="fas fa-upload"></i>
+                                        <span>Choose a file or drag it here</span>
+                                    </label>
+                                    <div class="file-info" id="file-info">No file selected</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <h3><i class="fas fa-clipboard-list"></i> Output:</h3>
+                    <div class="output-container">
+                        <textarea id="output-text" readonly></textarea>
+                        <div class="output-stats">
+                            <span id="char-count">0 characters</span>
+                            <span id="output-type">No conversion yet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="method-selection">
+                    <label for="decode-method">Select Method:</label>
+                    <select id="decode-method">
+                        <option value="base64">Base64</option>
+                        <option value="base32">Base32</option>
+                        <option value="base58">Base58</option>
+                        <option value="base85">Base85</option>
+                        <option value="url">URL Encoding</option>
+                        <option value="html">HTML Entity</option>
+                        <option value="unicode">Unicode Escape</option>
+                        <option value="hex">Hex (16進制)</option>
+                        <option value="binary">Binary (2進制)</option>
+                        <option value="octal">Octal (8進制)</option>
+                        <option value="rot13">ROT13</option>
+                        <option value="rot-n">ROT-N</option>
+                        <option value="caesar">Caesar Cipher</option>
+                        <option value="vigenere">Vigenère Cipher</option>
+                        <option value="morse">Morse Code</option>
+                    </select>
+                </div>
+
+                <div class="option-controls" id="option-controls">
+                    <!-- Dynamic options will be inserted here based on selected method -->
+                </div>
+
+                <div class="action-buttons">
+                    <button id="encode-btn" class="action-btn"><i class="fas fa-lock"></i> Encode</button>
+                    <button id="decode-btn" class="action-btn primary"><i class="fas fa-unlock"></i> Decode</button>
+                    <button id="try-all-btn" class="action-btn special"><i class="fas fa-magic"></i> Try All Methods</button>
+                    <button id="clear-btn" class="action-btn secondary"><i class="fas fa-eraser"></i> Clear</button>
+                    <button id="copy-btn" class="action-btn"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+            </div>
+        </div>
+
+    <div class="method-info">
+        <div class="info-content" id="method-description">
+            <!-- Method description will be inserted here -->
+        </div>
+    </div>
+    
+    <footer>
+        <p>@ytseiung_tech</p>
+        <p>Report Problems : <a href="mailto:ytseiungtech@gmail.com">ytseiungtech@gmail.com</a></p>
+    </footer>
+</div>
+
+<!-- Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.5/base64.min.js"></script>    <!-- Custom Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/encoders.js"></script>
+    <script src="js/decoders.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
